@@ -61,6 +61,12 @@ export function Header() {
           <Link to="/try-on" className="hidden md:inline-flex h-10 items-center gap-1.5 rounded-full px-3 text-xs uppercase tracking-wider hover:bg-secondary">
             <Sparkles className="h-3.5 w-3.5 text-gold" /> AI Try-on
           </Link>
+          <Link to="/login" className="hidden md:inline-flex h-10 items-center rounded-full px-3 text-xs uppercase tracking-wider hover:bg-secondary">
+            Login
+          </Link>
+          <Link to="/signup" className="hidden md:inline-flex h-10 items-center rounded-full bg-gradient-gold px-4 text-xs font-medium uppercase tracking-wider text-primary-foreground hover:opacity-90">
+            Sign up
+          </Link>
           <Link to="/account" className="hidden md:inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-secondary">
             <User className="h-4 w-4" />
           </Link>
