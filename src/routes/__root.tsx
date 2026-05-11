@@ -9,6 +9,10 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Header } from "@/components/site/header";
+import { BottomNav } from "@/components/site/bottom-nav";
+import { CartDrawer } from "@/components/site/cart-drawer";
+import { Footer } from "@/components/site/footer";
 
 function NotFoundComponent() {
   return (
@@ -72,16 +76,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Lumière — AI Luxury Fashion" },
+      { name: "description", content: "AI-native luxury fashion. Curated edits, AI try-on, and a personal stylist." },
+      { name: "author", content: "Lumière" },
+      { property: "og:title", content: "Lumière — AI Luxury Fashion" },
+      { property: "og:description", content: "AI-native luxury fashion. Curated edits, AI try-on, and a personal stylist." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -113,7 +120,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1 pb-20 lg:pb-0">
+          <Outlet />
+        </main>
+        <Footer />
+        <BottomNav />
+        <CartDrawer />
+      </div>
     </QueryClientProvider>
   );
 }
