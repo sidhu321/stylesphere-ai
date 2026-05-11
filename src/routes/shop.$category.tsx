@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { Filter, SlidersHorizontal } from "lucide-react";
 import { byCategory, categories, type CategorySlug } from "@/lib/products";
+type Cat = (typeof categories)[number];
 import { ProductCard } from "@/components/site/product-card";
 
 export const Route = createFileRoute("/shop/$category")({
@@ -45,7 +46,7 @@ const sortOptions = [
 ];
 
 function ShopCategory() {
-  const { cat } = Route.useLoaderData();
+  const { cat } = Route.useLoaderData() as { cat: Cat };
   const [sort, setSort] = useState("featured");
   const [maxPrice, setMaxPrice] = useState(50000);
 
