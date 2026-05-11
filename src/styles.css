@@ -199,4 +199,16 @@
   .sheen:hover::after { transform: translateX(100%); }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
+  .field-input {
+    width: 100%;
+    border-radius: 9999px;
+    background: var(--input);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    outline: none;
+    color: inherit;
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .field-input:focus { border-color: var(--gold); }
 }
