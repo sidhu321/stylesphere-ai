@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Heart, Minus, Plus, Share2, ShieldCheck, Sparkles, Star, Truck } from "lucide-react";
-import { formatPrice, getProduct, products } from "@/lib/products";
+import { formatPrice, getProduct, products, type Product } from "@/lib/products";
 import { useCart, useWishlist } from "@/lib/store";
 import { ProductCard } from "@/components/site/product-card";
 
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/product/$id")({
 });
 
 function ProductPage() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const navigate = useNavigate();
   const [activeImg, setActiveImg] = useState(0);
   const [size, setSize] = useState(product.sizes[0]);
